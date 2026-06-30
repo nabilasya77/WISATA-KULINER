@@ -233,4 +233,4 @@ require_once 'includes/header.php';
     </section>
 </main>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once 'api/includes/footer.php'; ?>
