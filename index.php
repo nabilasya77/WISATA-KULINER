@@ -1,8 +1,8 @@
 <?php
 
 
-require_once 'includes/koneksi.php';
-require_once 'includes/functions.php';
+require_once 'api/includes/koneksi.php';
+require_once 'api/includes/functions.php';
 
 $halaman_aktif = 'beranda';
 $judul_halaman = 'Beranda';
