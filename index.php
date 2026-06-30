@@ -2,7 +2,7 @@
 
 
 require_once 'includes/koneksi.php';
-require_once 'includes/functions.php';
+require_once 'functions.php';
 
 $halaman_aktif = 'beranda';
 $judul_halaman = 'Beranda';
@@ -23,7 +23,7 @@ if (!$destinasiUnggulan) {
 $totalDestinasi = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM destinasi_wisata WHERE status='aktif'"))['total'];
 $totalKuliner = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM kuliner WHERE status='aktif'"))['total'];
 
-require_once 'includes/header.php';
+require_once 'header.php';
 ?>
 <main>
     <!-- ============ HERO SECTION ============ -->
