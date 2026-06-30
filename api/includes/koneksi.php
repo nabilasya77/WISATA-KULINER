@@ -7,10 +7,15 @@ $db   = 'wisatakuliner';
 
 $koneksi = mysqli_init();
 
-$ca_path = '/etc/ssl/certs/ca-certificates.crt';
+if (!$koneksi) {
+    die("mysqli_init gagal");
+}
+
+// Menggunakan URL sertifikat publik DigiCert yang umum digunakan TiDB
+$ca_path = 'https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem';
 mysqli_ssl_set($koneksi, NULL, NULL, $ca_path, NULL, NULL);
 
-$real_connect = mysqli_real_connect(
+$real_connect = @mysqli_real_connect(
     $koneksi, 
     $host, 
     $user, 
@@ -21,6 +26,10 @@ $real_connect = mysqli_real_connect(
     MYSQLI_CLIENT_SSL
 );
 
+if (!$real_connect) {
+    die("Koneksi Database Gagal: " . mysqli_connect_error());
+}
+?>
 if (!$real_connect) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
